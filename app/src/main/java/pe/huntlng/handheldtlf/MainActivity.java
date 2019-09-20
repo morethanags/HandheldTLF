@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
@@ -26,7 +27,10 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageButton scanImageButton, searchImageButton;
-    private EditText dniEditText,lastnamesEditText, namesEditText, companyEditText ;
+    private EditText dniEditText,lastnamesEditText, namesEditText, companyEditText, camoTypeEditText,
+            camoStatusEditText, camoExpirationEditText,
+            sctrStatusEditText, sctrExpirationEditText
+    ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         lastnamesEditText = (EditText) findViewById(R.id.lastnamesEditText);
         namesEditText = (EditText) findViewById(R.id.namesEditText);
         companyEditText = (EditText) findViewById(R.id.companyEditText);
+        camoTypeEditText = (EditText) findViewById(R.id.camoTypeEditText);
+        camoStatusEditText = (EditText) findViewById(R.id.camoStatusEditText);
+        camoExpirationEditText = (EditText) findViewById(R.id.camoExpirationEditText);
+
+        sctrStatusEditText = (EditText) findViewById(R.id.sctrStatusEditText);
+        sctrExpirationEditText = (EditText) findViewById(R.id.sctrExpirationEditText);
+
         scanImageButton = (ImageButton) findViewById(R.id.scanImageButton);
         scanImageButton.setOnClickListener(this);
         searchImageButton = (ImageButton) findViewById(R.id.searchImageButton);
@@ -87,8 +98,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         lastnamesEditText.setText(null);
         namesEditText.setText(null);
         companyEditText.setText(null);
+
+        camoTypeEditText.setText(null);
+        camoStatusEditText.setText(null);
+        camoExpirationEditText.setText(null);
     }
-    private void displayPersonnel(JSONObject jsonObject){
+    private void displayPersonnel(JSONObject jsonObject) throws JSONException {
         dniEditText.setError(null);
         if (jsonObject != null) {
             Log.d("jsonObject", jsonObject.toString());
@@ -99,6 +114,60 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             namesEditText.setText(name);
             String company = !jsonObject.isNull("companyAreaName")? jsonObject.optString("companyAreaName"):"";
             companyEditText.setText(company);
+            if(!jsonObject.isNull("camo")){
+                camoTypeEditText.setError(null);
+                camoStatusEditText.setError(null);
+                camoExpirationEditText.setError(null);
+                JSONObject jsonObjectCamo = jsonObject.getJSONObject("camo");
+                String camotype = !jsonObjectCamo.isNull("documentType")? jsonObjectCamo.optString("documentType"):"";
+                camoTypeEditText.setText(camotype);
+                String camostatus;
+                if(jsonObjectCamo.optBoolean("validity")){
+                    camostatus = "VIGENTE";
+                }
+                else if(jsonObjectCamo.optBoolean("expired")){
+                    camostatus = "EXPIRADO";
+                    camoStatusEditText.setError("");
+                }
+                else {
+                    camostatus = "NO HAY INFORMACION";
+                    camoStatusEditText.setError("");
+                }
+                camoStatusEditText.setText(camostatus);
+                if(!jsonObjectCamo.isNull("expirationDate")){
+                    camoExpirationEditText.setText(jsonObjectCamo.optString("expirationDate"));
+                }
+            }
+            else {
+                camoTypeEditText.setError("");
+                camoStatusEditText.setError("");
+                camoExpirationEditText.setError("");
+            }
+            if(!jsonObject.isNull("sctr")){
+                sctrStatusEditText.setError(null);
+                sctrExpirationEditText.setError(null);
+                JSONObject jsonObjectSctr = jsonObject.getJSONObject("sctr");
+                String sctrstatus;
+                if(jsonObjectSctr.optBoolean("validity")){
+                    sctrstatus = "VIGENTE";
+                }
+                else if(jsonObjectSctr.optBoolean("expired")){
+                    sctrstatus = "EXPIRADO";
+                    sctrStatusEditText.setError("");
+                }
+                else {
+                    sctrstatus = "NO HAY INFORMACION";
+                    sctrStatusEditText.setError("");
+                }
+                sctrStatusEditText.setText(sctrstatus);
+                if(!jsonObjectSctr.isNull("expirationDate")){
+                    sctrExpirationEditText.setText(jsonObjectSctr.optString("expirationDate"));
+                }
+            }
+            else{
+                sctrStatusEditText.setError("");
+                sctrExpirationEditText.setError("");
+            }
         }
 
     }

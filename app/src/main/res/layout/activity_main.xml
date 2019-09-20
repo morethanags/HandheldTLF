@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="DNI"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/dniEditText"
         app:layout_constraintEnd_toStartOf="@id/dniEditText"
         app:layout_constraintTop_toTopOf="@id/dniEditText" />
@@ -27,7 +27,7 @@
         android:hint="@string/dni_hint"
         android:inputType="number"
         android:text="45827488"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="APELLIDO"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/lastnamesEditText"
         app:layout_constraintEnd_toStartOf="@id/dniEditText"
         app:layout_constraintTop_toTopOf="@id/lastnamesEditText" />
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
 
         android:enabled="false"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@id/dniEditText"
         app:layout_constraintTop_toBottomOf="@id/dniEditText"
@@ -83,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="NOMBRE"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/namesEditText"
         app:layout_constraintEnd_toStartOf="@id/dniEditText"
         app:layout_constraintTop_toTopOf="@id/namesEditText" />
@@ -94,7 +94,7 @@
         android:layout_height="wrap_content"
 
         android:enabled="false"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@id/dniEditText"
         app:layout_constraintTop_toBottomOf="@id/lastnamesEditText"
@@ -106,7 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="COMPANY"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/companyEditText"
         app:layout_constraintEnd_toStartOf="@id/dniEditText"
         app:layout_constraintTop_toTopOf="@id/companyEditText" />
@@ -117,10 +117,150 @@
         android:layout_height="wrap_content"
 
         android:enabled="false"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@id/dniEditText"
         app:layout_constraintTop_toBottomOf="@id/namesEditText"
         app:layout_constraintEnd_toEndOf="@id/searchImageButton"/>
 
+    <TextView
+        android:id="@+id/camoTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="CAMO"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/companyEditText"
+         />
+
+    <TextView
+        android:id="@+id/camoTypeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="TIPO"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/camoTypeEditText"
+        app:layout_constraintEnd_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toTopOf="@id/camoTypeEditText" />
+
+    <EditText
+        android:id="@+id/camoTypeEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:enabled="false"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toBottomOf="@id/camoTitleTextView"
+        app:layout_constraintEnd_toEndOf="@id/searchImageButton"/>
+
+    <TextView
+        android:id="@+id/camoStatusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="ESTADO"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/camoStatusEditText"
+        app:layout_constraintEnd_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toTopOf="@id/camoStatusEditText" />
+
+    <EditText
+        android:id="@+id/camoStatusEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:enabled="false"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toBottomOf="@id/camoTypeEditText"
+        app:layout_constraintEnd_toEndOf="@id/searchImageButton"/>
+
+    <TextView
+        android:id="@+id/camoExpirationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="VIGENCIA"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/camoExpirationEditText"
+        app:layout_constraintEnd_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toTopOf="@id/camoExpirationEditText" />
+
+    <EditText
+        android:id="@+id/camoExpirationEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:enabled="false"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toBottomOf="@id/camoStatusEditText"
+        app:layout_constraintEnd_toEndOf="@id/searchImageButton"/>
+
+    <TextView
+        android:id="@+id/sctrTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="SCTR"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/camoExpirationEditText"
+        />
+
+    <TextView
+        android:id="@+id/sctrStatusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="ESTADO"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/sctrStatusEditText"
+        app:layout_constraintEnd_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toTopOf="@id/sctrStatusEditText" />
+
+    <EditText
+        android:id="@+id/sctrStatusEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:enabled="false"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toBottomOf="@id/sctrTitleTextView"
+        app:layout_constraintEnd_toEndOf="@id/searchImageButton"/>
+
+    <TextView
+        android:id="@+id/sctrExpirationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="VIGENCIA"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/sctrExpirationEditText"
+        app:layout_constraintEnd_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toTopOf="@id/sctrExpirationEditText" />
+
+    <EditText
+        android:id="@+id/sctrExpirationEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:enabled="false"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toBottomOf="@id/sctrStatusEditText"
+        app:layout_constraintEnd_toEndOf="@id/searchImageButton"/>
 </android.support.constraint.ConstraintLayout>
