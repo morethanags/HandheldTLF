@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/dniTextViewLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="DNI"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/dniEditText"
+        app:layout_constraintEnd_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toTopOf="@id/dniEditText" />
+
+    <EditText
+        android:id="@+id/dniEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="5"
+        android:hint="@string/dni_hint"
+        android:inputType="number"
+        android:text="45827488"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/scanImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/dniEditText"
+        app:layout_constraintStart_toEndOf="@+id/dniEditText"
+        app:layout_constraintTop_toTopOf="@id/dniEditText"
+        app:srcCompat="@drawable/ic_barcode_scan" />
+
+    <ImageButton
+        android:id="@+id/searchImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/dniEditText"
+        app:layout_constraintStart_toEndOf="@+id/scanImageButton"
+        app:layout_constraintTop_toTopOf="@id/dniEditText"
+        app:srcCompat="@drawable/ic_account_search" />
+
+    <TextView
+        android:id="@+id/lastnamesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="APELLIDO"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/lastnamesEditText"
+        app:layout_constraintEnd_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toTopOf="@id/lastnamesEditText" />
+
+    <EditText
+        android:id="@+id/lastnamesEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:enabled="false"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toBottomOf="@id/dniEditText"
+        app:layout_constraintEnd_toEndOf="@id/searchImageButton"/>
+
+    <TextView
+        android:id="@+id/namesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="NOMBRE"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/namesEditText"
+        app:layout_constraintEnd_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toTopOf="@id/namesEditText" />
+
+    <EditText
+        android:id="@+id/namesEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:enabled="false"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toBottomOf="@id/lastnamesEditText"
+        app:layout_constraintEnd_toEndOf="@id/searchImageButton"/>
+
+    <TextView
+        android:id="@+id/companyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="COMPANY"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/companyEditText"
+        app:layout_constraintEnd_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toTopOf="@id/companyEditText" />
+
+    <EditText
+        android:id="@+id/companyEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:enabled="false"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toBottomOf="@id/namesEditText"
+        app:layout_constraintEnd_toEndOf="@id/searchImageButton"/>
+
+</android.support.constraint.ConstraintLayout>
