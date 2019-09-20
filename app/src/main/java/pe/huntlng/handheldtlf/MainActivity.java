@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +23,9 @@ import java.io.BufferedReader;
 import java.io.Console;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.Authenticator;
 import java.net.HttpURLConnection;
+import java.net.PasswordAuthentication;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -96,12 +99,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void displayPersonnelNotFound(){
         dniEditText.setError("No se encontró información");
         lastnamesEditText.setText(null);
+        lastnamesEditText.setError(null);
         namesEditText.setText(null);
+        namesEditText.setError(null);
         companyEditText.setText(null);
-
+        companyEditText.setError(null);
         camoTypeEditText.setText(null);
+        camoTypeEditText.setError(null);
         camoStatusEditText.setText(null);
+        camoStatusEditText.setError(null);
         camoExpirationEditText.setText(null);
+        camoExpirationEditText.setError(null);
+        sctrStatusEditText.setText(null);
+        sctrStatusEditText.setError(null);
+        sctrExpirationEditText.setText(null);
+        sctrExpirationEditText.setError(null);
     }
     private void displayPersonnel(JSONObject jsonObject) throws JSONException {
         dniEditText.setError(null);
@@ -139,6 +151,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
             else {
+                camoTypeEditText.setText(null);
+                camoStatusEditText.setText(null);
+                camoExpirationEditText.setText(null);
+
                 camoTypeEditText.setError("");
                 camoStatusEditText.setError("");
                 camoExpirationEditText.setError("");
@@ -164,7 +180,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     sctrExpirationEditText.setText(jsonObjectSctr.optString("expirationDate"));
                 }
             }
-            else{
+            else {
+                sctrStatusEditText.setText(null);
+                sctrExpirationEditText.setText(null);
+
                 sctrStatusEditText.setError("");
                 sctrExpirationEditText.setError("");
             }
@@ -180,8 +199,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             try {
                 URL url = new URL(args[0]);
                 Log.d("url", args[0]);
+
+                final String basicAuth = "Basic " + Base64.encodeToString(getResources().getString(R.string.url_credentials).getBytes(), Base64.NO_WRAP);
+
                 urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setRequestProperty ("Authorization", basicAuth);
                 urlConnection.setRequestMethod("GET");
+
                 int code = urlConnection.getResponseCode();
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in));

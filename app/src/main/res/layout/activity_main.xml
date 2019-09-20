@@ -105,7 +105,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="COMPANY"
+        android:text="COMPAÑIA"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/companyEditText"
         app:layout_constraintEnd_toStartOf="@id/dniEditText"
