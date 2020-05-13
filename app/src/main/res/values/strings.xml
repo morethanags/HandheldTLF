@@ -2,7 +2,8 @@
     <string name="app_name">Handheld TLF</string><string name="dni_hint">DNI</string>
     <string name="lastnames">APELLIDOS</string>
     <string name="names">NOMBRE</string>
-    <!--string name="url_path">http://wsdev.perulng.com:8120/PACBackend/rest/Personnels/ByDocumentId/</string-->
-    <string name="url_path">http://dmoran:8090/rest/Personnels/ByDocumentId/</string>
-    <string name="url_credentials">NetCoreUser:Hunt2018##@</string>
+    <string name="url_path">http://wsprd.perulng.com:8122/PACBackend/rest/Personnels/ByDocumentId/</string>
+    <string name="url_path_form">http://wsdev.perulng.com:8120/COVID/rest/Form/Last/</string>
+    <!--string name="url_path">http://dmoran:8090/rest/Personnels/ByDocumentId/</string-->
+    <string name="url_credentials">NetCoreUser:Hunt2020##@</string>
 </resources>

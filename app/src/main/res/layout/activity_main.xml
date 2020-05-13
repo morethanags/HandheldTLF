@@ -263,4 +263,63 @@
         app:layout_constraintStart_toStartOf="@id/dniEditText"
         app:layout_constraintTop_toBottomOf="@id/sctrStatusEditText"
         app:layout_constraintEnd_toEndOf="@id/searchImageButton"/>
+
+    <TextView
+        android:id="@+id/formTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="FORMULARIO DE SINTOMATOLOGÍA COVID-19"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sctrExpirationEditText" />
+
+    <TextView
+        android:id="@+id/formStatusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="ESTADO"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/formStatusEditText"
+        app:layout_constraintEnd_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toTopOf="@id/formStatusEditText" />
+
+    <EditText
+        android:id="@+id/formStatusEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:enabled="false"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toBottomOf="@id/formTitleTextView"
+        app:layout_constraintEnd_toEndOf="@id/searchImageButton" />
+
+    <TextView
+        android:id="@+id/formExpirationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="VIGENCIA"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/formExpirationEditText"
+        app:layout_constraintEnd_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toTopOf="@id/formExpirationEditText" />
+
+    <EditText
+        android:id="@+id/formExpirationEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:enabled="false"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/dniEditText"
+        app:layout_constraintTop_toBottomOf="@id/formStatusEditText"
+        app:layout_constraintEnd_toEndOf="@id/searchImageButton" />
+
 </android.support.constraint.ConstraintLayout>
